@@ -1,0 +1,27 @@
+{
+  "name": "input-month-polyfill",
+  "version": "1.0.0",
+  "description": "Enable month selection",
+  "main": "src/input-month-polyfill.js",
+  "author": "Natanael Simoes",
+  "license": "MIT",
+  "scripts": {
+    "build": "cross-env NODE_ENV=production webpack",
+    "start": "cross-env NODE_ENV=production webpack-dev-server --inline --hot --open"
+  },
+  "dependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "@babel/register": "^7.9.0",
+    "babel-loader": "^8.1.0",
+    "cross-env": "^7.0.2",
+    "glob": "^7.1.6",
+    "html-webpack-plugin": "^4.3.0",
+    "json-loader": "^0.5.7",
+    "modernizr": "^3.11.0",
+    "modernizr-loader": "^1.0.1",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  }
+}
