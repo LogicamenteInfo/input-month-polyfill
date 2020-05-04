@@ -1,7 +1,7 @@
 {
   "name": "input-month-polyfill",
   "version": "1.0.0",
-  "description": "Enable month selection",
+  "description": "Enables the use of inputs with month type in browsers that does not support it nativelly",
   "main": "src/Main.js",
   "author": "Natanael Simoes",
   "license": "MIT",
