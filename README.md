@@ -16,21 +16,15 @@ It means, **you don't need to track what this package is doing. Just keep follow
 Download it with your package manager:
 
 ```bash
-yarn add input-month-polyfill
+$ yarn add input-month-polyfill
 OR
-npm i -S input-month-polyfill
+$ npm i -S input-month-polyfill
 ```
 
 Then add it to the end of your body:
 
 ```html
-<script src="/node_modules/input-month-polyfill/dist/input-month-polyfill.min.js"></script>
-```
-
-Or go with CDN: 
-
-```html
-<script src="cdn....."></script>
+<script src="./node_modules/input-month-polyfill/dist/input-month-polyfill.min.js"></script>
 ```
 
 Or import it to your node app:
@@ -60,7 +54,8 @@ Currently only **en** and **pt-BR** are available. Please, **contribute** with o
 ## Styling
 
 The following are the classes used within this package. You can write your own CSS to override our default options.
-
+| CSS Class Name            | Description                                               |
+| :---:                     | :---:                                                     |
 | .imp--container           | The entire package                                        |
 | .imp--input               | Text input that shows month and year                      |
 | .imp--viewers             | Viewport that holds both month and year UI controllers    |
