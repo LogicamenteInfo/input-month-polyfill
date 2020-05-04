@@ -67,6 +67,7 @@ export default class InputMonth {
     prevButton.classList.add('imp--year--button--prev');
     prevButton.setAttribute('type', 'button');
     prevButton.addEventListener('click', (e) => {
+      this.isInContainer = true;
       this.yearViewer.textContent = '';
       this.drawYearButtons(startYear - 9).map(y => this.yearViewer.appendChild(y));
       this.showYearViewer();
@@ -77,6 +78,7 @@ export default class InputMonth {
     nextButton.setAttribute('type', 'button');
     nextButton.innerHTML = '&gt;';
     nextButton.addEventListener('click', (e) => {
+      this.isInContainer = true;
       this.yearViewer.textContent = '';
       this.drawYearButtons(startYear + 9).map(y => this.yearViewer.appendChild(y));
       this.showYearViewer();
@@ -140,9 +142,12 @@ export default class InputMonth {
 
   onInputBlur() {
     setTimeout(() => {
-      this.monthViewer.style = 'display: none';
-      this.yearViewer.style = 'display: none';
-    }, 100);
+      if (!this.isInContainer) {
+        this.monthViewer.style = 'display: none';
+        this.yearViewer.style = 'display: none';
+      }
+      this.isInContainer = false;
+    }, 150);
   }
 
   onInputKeyDown(e) {
@@ -178,18 +183,14 @@ export default class InputMonth {
   }
 
   selectInputMonth() {
-    setTimeout(() => {
-      const sentence = this.input.value.match(/(.+) (.+)/);
-      this.input.selectionStart = 0;
-      this.input.selectionEnd = sentence[1].length;
-    }, 100);
+    const sentence = this.input.value.match(/(.+) (.+)/);
+    this.input.selectionStart = 0;
+    this.input.selectionEnd = sentence[1].length;
   }
 
   selectInputYear() {
-    setTimeout(() => {
-      this.input.selectionStart = this.input.value.length - 4;
-      this.input.selectionEnd = this.input.value.length;
-    }, 100);
+    this.input.selectionStart = this.input.value.length - 4;
+    this.input.selectionEnd = this.input.value.length;
   }
 
   keyboardYearSelect(code) {
@@ -230,7 +231,7 @@ export default class InputMonth {
       this.input.selectionStart = sentence[1].length + 1;
       this.input.selectionEnd = this.input.selectionStart + 4;
       this.input.dispatchEvent(new Event('click'));
-    }, 150);
+    }, 200);
   }
 
 }
