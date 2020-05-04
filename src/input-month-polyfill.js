@@ -66,7 +66,9 @@ function drawInput(original) {
   const input = document.createElement('input');
   input.classList.add('imp--input');
   original.classList.forEach(c => input.classList.add(c));
-  input.setAttribute('readonly', original.getAttribute('readonly'));
+  const iReadOnly = original.getAttribute('readonly');
+  if (iReadOnly)
+    input.setAttribute('readonly', iReadOnly);
   input.setAttribute('type', 'text');
   input.setAttribute('data-month', '');
   input.setAttribute('data-year', '');
@@ -80,6 +82,7 @@ function drawInput(original) {
       original.value = '';
   });
   const monthViewer = document.createElement('div');
+  monthViewer.style = 'display: none';
   monthViewer.classList.add('imp--month--viewer');
   monthViewer.appendChild(drawMonthButtons(Locales[lang].January, Locales[lang].ABBR_Jan, 1, input));
   monthViewer.appendChild(drawMonthButtons(Locales[lang].February, Locales[lang].ABBR_Feb, 2, input));
@@ -94,6 +97,7 @@ function drawInput(original) {
   monthViewer.appendChild(drawMonthButtons(Locales[lang].November, Locales[lang].ABBR_Nov, 11, input));
   monthViewer.appendChild(drawMonthButtons(Locales[lang].December, Locales[lang].ABBR_Dec, 12, input));
   const yearViewer = document.createElement('div');
+  yearViewer.style = 'display: none';
   yearViewer.classList.add('imp--year--viewer');
   drawYearButtons(new Date().getFullYear() - 4, yearViewer, input).map(y => {
     yearViewer.appendChild(y);
@@ -101,20 +105,33 @@ function drawInput(original) {
   container.appendChild(input);
   container.appendChild(monthViewer);
   container.appendChild(yearViewer);
+  input.addEventListener('click', (e) => onInputClick(e, monthViewer, yearViewer));
+  input.addEventListener('blur', () => onInputBlur(monthViewer, yearViewer));
+  input.addEventListener('keypress', (e) => { onInputKeyPress(e, monthViewer, yearViewer); });
   //original.style = 'display: none';
   original.parentNode.insertBefore(container, original.nextSibling);
 }
 
-function onInputClick(e) {
+function onInputKeyPress()
+
+function onInputClick(e, m, y) {
+  onInputBlur(m, y);
   const sentence = e.target.value.match(/(.+) (.+)/);
   if (e.target.selectionStart <= sentence[1].length) {
     e.target.selectionStart = 0;
     e.target.selectionEnd = sentence[1].length;
+    m.style = 'display: block';
   }
   else {
     e.target.selectionStart = sentence[1].length + 1;
     e.target.selectionEnd = e.target.selectionStart + 4;
+    y.style = 'display: block';
   }
+}
+
+function onInputBlur(m, y) {
+  m.style = 'display: none';
+  y.style = 'display: none';
 }
 
 window.onload = function () {
