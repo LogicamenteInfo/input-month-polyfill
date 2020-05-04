@@ -1,5 +1,6 @@
 import Modernizr from 'modernizr';
 import InputMonth from './InputMonth';
+import './Style/style.css';
 
 window.onload = function () {
   if (!Modernizr.inputtypes.month) {

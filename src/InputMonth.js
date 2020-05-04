@@ -23,6 +23,8 @@ export default class InputMonth {
     this.input.setAttribute('data-month', '');
     this.input.setAttribute('data-year', '');
     this.input.value = '---------- ----';
+    this.viewers = document.createElement('div');
+    this.viewers.classList.add('imp--viewers');
     this.monthViewer = document.createElement('div');
     this.monthViewer.style = 'display: none';
     this.monthViewer.classList.add('imp--month--viewer');
@@ -32,8 +34,9 @@ export default class InputMonth {
     this.yearViewer.classList.add('imp--year--viewer');
     this.drawYearButtons(new Date().getFullYear() - 4).map(y => this.yearViewer.appendChild(y));
     this.container.appendChild(this.input);
-    this.container.appendChild(this.monthViewer);
-    this.container.appendChild(this.yearViewer);
+    this.viewers.appendChild(this.monthViewer);
+    this.viewers.appendChild(this.yearViewer);
+    this.container.append(this.viewers);
     this.original.style = 'display: none';
     this.original.parentNode.insertBefore(this.container, this.original.nextSibling);
   }
@@ -51,6 +54,7 @@ export default class InputMonth {
     Object.keys(this.locales).filter(m => !m.includes('ABBR')).forEach((monthName, i) => {
       const monthButton = document.createElement('button');
       monthButton.classList.add('imp--month--button');
+      monthButton.classList.add('imp--button');
       monthButton.setAttribute('type', 'button');
       monthButton.setAttribute('data-month-name', this.locales[monthName]);
       monthButton.setAttribute('data-month-number', (i + 1));
@@ -63,6 +67,8 @@ export default class InputMonth {
 
   drawYearButtons(startYear) {
     const yB = [];
+    const controls = document.createElement('div');
+    controls.classList.add('imp--viewer--controls');
     const prevButton = document.createElement('button');
     prevButton.classList.add('imp--year--button--prev');
     prevButton.setAttribute('type', 'button');
@@ -83,11 +89,13 @@ export default class InputMonth {
       this.drawYearButtons(startYear + 9).map(y => this.yearViewer.appendChild(y));
       this.showYearViewer();
     });
-    yB.push(prevButton);
-    yB.push(nextButton);
+    controls.appendChild(prevButton);
+    controls.appendChild(nextButton);
+    yB.push(controls);
     for (let i = startYear; i < startYear + 9; i++) {
       const yearButton = document.createElement('button');
       yearButton.classList.add('imp--year--button');
+      yearButton.classList.add('imp--button');
       yearButton.setAttribute('type', 'button');
       yearButton.setAttribute('data-year', i);
       yearButton.innerHTML = i;

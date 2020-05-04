@@ -5,7 +5,7 @@ var HTMLWebpackPluginConfig = new HtmlWebpackPlugin({ template: './src/demo.html
 
 module.exports = {
   mode: process.env.NODE_ENV,
-  entry: './src/input-month-polyfill.js',
+  entry: './src/Main.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: (process.env.NODE_ENV === 'production') ? 'input-month-polyfill.min.js' : 'input-month-polyfill.js'
@@ -16,6 +16,11 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         loader: 'babel-loader'
+      },
+      {
+        test: /\.css$/,
+        exclude: /node_modules/,
+        use: ['style-loader', 'css-loader']
       },
       {
         type: 'javascript/auto',
