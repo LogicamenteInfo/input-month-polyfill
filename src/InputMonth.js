@@ -2,8 +2,9 @@ import Locales from './Locales';
 
 export default class InputMonth {
 
-  constructor(input, lang = 'en') {
+  constructor(input) {
     this.original = input;
+    const lang = input.getAttribute('data-lang') ? input.getAttribute('data-lang') : 'en';
     if (Locales[lang] === undefined) throw 'Language not implemented.';
     this.locales = Locales[lang];
     this.createStructures();
