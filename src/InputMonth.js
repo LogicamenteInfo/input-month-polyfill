@@ -9,6 +9,17 @@ export default class InputMonth {
     this.locales = Locales[lang];
     this.createStructures();
     this.bindInputEvents();
+    this.loadOriginalValue();
+  }
+
+  loadOriginalValue() {
+    if (this.original.value !== '') {
+      const sentence = this.original.value.match(/(\d{4})\-(\d{2})/);
+      const year = sentence[1];
+      const monthNumber = parseInt(sentence[2]) - 1;
+      const months = Object.keys(this.locales);
+      this.input.value = `${this.locales[months[monthNumber]]} ${year}`;
+    }
   }
 
   createStructures() {
