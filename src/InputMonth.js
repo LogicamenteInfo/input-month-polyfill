@@ -27,7 +27,7 @@ export default class InputMonth {
     this.container.classList.add('imp--container');
     this.input = document.createElement('input');
     this.input.classList.add('imp--input');
-    this.original.classList.forEach(c => input.classList.add(c));
+    this.original.classList.forEach(c => this.input.classList.add(c));
     const iReadOnly = this.original.getAttribute('readonly');
     if (iReadOnly)
       this.input.setAttribute('readonly', iReadOnly);

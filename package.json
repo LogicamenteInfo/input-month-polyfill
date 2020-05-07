@@ -1,6 +1,6 @@
 {
   "name": "input-month-polyfill",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Enables the use of inputs with month type in browsers that does not support it nativelly",
   "keywords": ["input", "month", "polyfill"],
   "main": "src/Main.js",
@@ -12,6 +12,7 @@
   },
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack",
+    "build-dev": "cross-env NODE_ENV=development webpack",
     "start": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --open"
   },
   "dependencies": {
