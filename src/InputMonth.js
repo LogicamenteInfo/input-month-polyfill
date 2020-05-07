@@ -50,6 +50,7 @@ export default class InputMonth {
     this.viewers.appendChild(this.yearViewer);
     this.container.append(this.viewers);
     this.original.style = 'display: none';
+    this.original.classList.add('input-month-polyfill');
     this.original.parentNode.insertBefore(this.container, this.original.nextSibling);
   }
 
@@ -118,7 +119,6 @@ export default class InputMonth {
   }
 
   onMonthClick(e) {
-    console.log(e)
     const sentence = this.input.value.match(/(.+) (.+)/);
     this.input.value = `${e.target.getAttribute('data-month-name')} ${sentence[2]}`;
     this.input.setAttribute('data-month', e.target.getAttribute('data-month-number'));
