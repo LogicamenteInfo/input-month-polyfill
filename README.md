@@ -1,5 +1,8 @@
 # Input Month Polyfill
 
+[![Travis][build-badge]][build]
+[![npm package][npm-badge]][npm]
+
 This package enables the use of inputs with month type in browsers that does not support it nativelly.
 
 ## What it does
@@ -78,3 +81,9 @@ The following are the classes used within this package. You can write your own C
 | .imp--viewer--controls    | Block that holds prev and next year buttons               |
 | .imp--year--button--prev  | The prev button from year viewer                          |
 | .imp--year--button--next  | The next button from year viewer                          |
+
+[build-badge]: https://img.shields.io/travis/logicamenteinfo/input-month-polyfill/master.png?style=flat-square
+[build]: https://travis-ci.org/logicamenteinfo/input-month-polyfill
+
+[npm-badge]: https://img.shields.io/npm/v/@logicamente.info/input-month-polyfill.png?style=flat-square
+[npm]: https://www.npmjs.org/@logicamente.info/input-month-polyfill
