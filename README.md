@@ -33,7 +33,7 @@ Then add it to the end of your body:
 Or import it to your node app:
 
 ```js
-import 'input-month-polyfill/dist/input-month-polyfill.min';
+import '@logicamente.info/input-month-polyfill/dist/input-month-polyfill.min';
 ```
 
 ## React compatible
