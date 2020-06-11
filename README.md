@@ -19,9 +19,9 @@ It means, **you don't need to track what this package is doing. Just keep follow
 Download it with your package manager:
 
 ```bash
-$ yarn add input-month-polyfill
+$ yarn add @logicamente.info/input-month-polyfill
 OR
-$ npm i -S input-month-polyfill
+$ npm i -S @logicamente.info/input-month-polyfill
 ```
 
 Then add it to the end of your body:
