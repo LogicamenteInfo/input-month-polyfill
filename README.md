@@ -4,7 +4,7 @@ This package enables the use of inputs with month type in browsers that does not
 
 ## What it does
 
-It **hides** every month input, then add right after each one a DOM with events to handle user interaction. 
+It **hides** every month input, then add right after each one a DOM with events to handle user interaction.
 
 When the user set a month and year with this polyfill, it automatically sets the correspondent value to the original month input, using the same value pattern that is expected from a month input (yyyy-mm).
 
@@ -24,7 +24,7 @@ $ npm i -S input-month-polyfill
 Then add it to the end of your body:
 
 ```html
-<script src="./node_modules/input-month-polyfill/dist/input-month-polyfill.min.js"></script>
+<script src="./node_modules/@logicamente.info/input-month-polyfill/dist/input-month-polyfill.min.js"></script>
 ```
 
 Or import it to your node app:
@@ -33,9 +33,20 @@ Or import it to your node app:
 import 'input-month-polyfill/dist/input-month-polyfill.min';
 ```
 
+## React compatible
+
+```js
+  return (
+    <input
+      type="month"
+      value={this.state.month}
+      onChange={(e) => this.setState({ month: e.target.value })} />
+  )
+```
+
 ## UI
 
-Your users can use keyboard or mouse to interact with this package. Only keyboard arrows are allowed to change its value. 
+Your users can use keyboard or mouse to interact with this package. Only keyboard arrows are allowed to change its value.
 
 Left and right arrows are both used to change from month to year selection, vice-versa.
 

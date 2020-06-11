@@ -1,14 +1,19 @@
 {
-  "name": "input-month-polyfill",
+  "name": "@logicamente.info/input-month-polyfill",
   "version": "1.0.5",
   "description": "Enables the use of inputs with month type in browsers that does not support it nativelly",
-  "keywords": ["input", "month", "polyfill"],
+  "keywords": [
+    "input",
+    "month",
+    "polyfill"
+  ],
   "main": "src/Main.js",
-  "author": "Natanael Simoes",
+  "author": "Logicamente Info",
+  "homepage": "https://logicamente.info",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/natanaelsimoes/input-month-polyfill.git"
+    "url": "https://github.com/logicamenteinfo/input-month-polyfill.git"
   },
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack",
