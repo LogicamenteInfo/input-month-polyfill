@@ -1,6 +1,6 @@
 {
   "name": "@logicamente.info/input-month-polyfill",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Enables the use of inputs with month type in browsers that does not support it nativelly",
   "keywords": [
     "input",
