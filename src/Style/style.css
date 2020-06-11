@@ -1,6 +1,7 @@
 .imp--viewers {
     position: relative;
     width: 162px;
+    z-index: 2;
 }
 .imp--month--viewer, .imp--year--viewer {
     position: absolute;

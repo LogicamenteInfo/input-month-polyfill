@@ -49,7 +49,7 @@ export default class InputMonth {
     this.viewers.appendChild(this.monthViewer);
     this.viewers.appendChild(this.yearViewer);
     this.container.append(this.viewers);
-    this.original.style = 'display: none';
+    //this.original.style = 'display: none';
     this.original.classList.add('input-month-polyfill');
     this.original.parentNode.insertBefore(this.container, this.original.nextSibling);
   }
@@ -158,6 +158,8 @@ export default class InputMonth {
       this.original.value = `${year}-${month.toString().padStart(2, '0')}`;
     else
       this.original.value = '';
+    this.original.dispatchEvent(new Event('change'));
+    this.original.dispatchEvent(new Event('blur'));
   }
 
   onInputBlur() {

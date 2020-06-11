@@ -1,6 +1,6 @@
 {
   "name": "input-month-polyfill",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Enables the use of inputs with month type in browsers that does not support it nativelly",
   "keywords": ["input", "month", "polyfill"],
   "main": "src/Main.js",
