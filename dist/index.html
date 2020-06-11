@@ -1,0 +1,5 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Input Month Polyfill</title></head><body><input type="month" id="m1"> <input type="month" data-lang="pt-BR" id="m2"> <input type="month" data-lang="pt-BR" id="m3" value="2020-05"> <button onclick="criar()" type="button">Criar</button><script>function criar() {
+      const input = document.createElement('input');
+      input.setAttribute('type', 'month');
+      document.body.appendChild(input);
+    }</script><script src="input-month-polyfill.min.js?afcc291de5cca68c741e"></script></body></html>
