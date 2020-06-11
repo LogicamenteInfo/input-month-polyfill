@@ -49,7 +49,7 @@ export default class InputMonth {
     this.viewers.appendChild(this.monthViewer);
     this.viewers.appendChild(this.yearViewer);
     this.container.append(this.viewers);
-    //this.original.style = 'display: none';
+    this.original.style = 'display: none';
     this.original.classList.add('input-month-polyfill');
     this.original.parentNode.insertBefore(this.container, this.original.nextSibling);
   }
