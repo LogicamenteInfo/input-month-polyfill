@@ -121,7 +121,7 @@ export default class InputMonth {
 
   setMonth(monthNumber) {
     const sentence = this.input.value.match(/(.+) (.+)/);
-    this.input.value = `${Object.keys(this.locales)[monthNumber - 1]} ${sentence[2]}`;
+    this.input.value = `${Object.values(this.locales)[monthNumber - 1]} ${sentence[2]}`;
     this.input.setAttribute('data-month', monthNumber);
   }
 
