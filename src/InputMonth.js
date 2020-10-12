@@ -60,6 +60,7 @@ export default class InputMonth {
     this.input.addEventListener('keypress', e => e.preventDefault());
     this.input.addEventListener('keydown', this.onInputKeyDown.bind(this));
     this.input.addEventListener('change', this.onInputChange.bind(this));
+    this.original.addEventListener('input', this.onOriginalInputChange.bind(this));
   }
 
   drawMonthButtons() {
@@ -118,19 +119,27 @@ export default class InputMonth {
     return yB;
   }
 
-  onMonthClick(e) {
+  setMonth(monthNumber) {
     const sentence = this.input.value.match(/(.+) (.+)/);
-    this.input.value = `${e.target.getAttribute('data-month-name')} ${sentence[2]}`;
-    this.input.setAttribute('data-month', e.target.getAttribute('data-month-number'));
+    this.input.value = `${Object.keys(this.locales)[monthNumber - 1]} ${sentence[2]}`;
+    this.input.setAttribute('data-month', monthNumber);
+  }
+
+  setYear(year) {
+    const sentence = this.input.value.match(/(.+) (.+)/);
+    this.input.value = `${sentence[1]} ${year}`;
+    this.input.setAttribute('data-year', year);
+  }
+
+  onMonthClick(e) {
+    this.setMonth(e.target.getAttribute('data-month-number'))
     this.input.dispatchEvent(new Event('change'));
     if (e.explicitOriginalTarget === e.target)
       this.showYearViewer();
   }
 
   onYearClick(e) {
-    const sentence = this.input.value.match(/(.+) (.+)/);
-    this.input.value = `${sentence[1]} ${e.target.getAttribute('data-year')}`;
-    this.input.setAttribute('data-year', e.target.getAttribute('data-year'));
+    this.setYear(e.target.getAttribute('data-year'))
     this.input.dispatchEvent(new Event('change'));
     this.input.dispatchEvent(new Event('blur'));
   }
@@ -160,6 +169,12 @@ export default class InputMonth {
       this.original.value = '';
     this.original.dispatchEvent(new Event('change'));
     this.original.dispatchEvent(new Event('blur'));
+  }
+
+  onOriginalInputChange(e) {
+    const splitDate = e.target.value.split("-");
+    this.setYear(splitDate[0]);
+    this.setMonth(splitDate[1]);
   }
 
   onInputBlur() {
